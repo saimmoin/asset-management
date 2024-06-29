@@ -1,0 +1,13 @@
+com\telusko\bankingapplication\repositories\UserRepository.class
+com\telusko\bankingapplication\BankingappApplication.class
+com\telusko\bankingapplication\controllers\Controller.class
+com\telusko\bankingapplication\exceptions\GlobalExceptionHandler.class
+com\telusko\bankingapplication\bankingObjects\User.class
+com\telusko\bankingapplication\exceptions\ResourceNotFoundException.class
+com\telusko\bankingapplication\bankingObjects\Loan.class
+com\telusko\bankingapplication\config\CorsConfig.class
+com\telusko\bankingapplication\repositories\LoanRepository.class
+com\telusko\bankingapplication\repositories\AccountRepository.class
+com\telusko\bankingapplication\bankingObjects\Account.class
+com\telusko\bankingapplication\exceptions\ErrorDetails.class
+com\telusko\bankingapplication\bankingObjects\Amount.class
