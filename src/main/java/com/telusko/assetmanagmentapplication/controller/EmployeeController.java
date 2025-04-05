@@ -3,7 +3,9 @@ package com.telusko.assetmanagmentapplication.controller;
 import com.telusko.assetmanagmentapplication.assetObjects.Assets;
 import com.telusko.assetmanagmentapplication.assetObjects.Employees;
 import com.telusko.assetmanagmentapplication.assetObjects.Locations;
+import com.telusko.assetmanagmentapplication.dto.CategoryDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.EmployeeAddDTO;
+import com.telusko.assetmanagmentapplication.dto.EmployeeDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.LocationAddDTO;
 import com.telusko.assetmanagmentapplication.service.AssetsService;
 import com.telusko.assetmanagmentapplication.service.EmployeesService;
@@ -44,6 +46,11 @@ public class EmployeeController {
     @PostMapping("/employees/add")
     public String addEmployee(@RequestBody EmployeeAddDTO employeeAddDTO) {
         return employeesService.addEmployee(employeeAddDTO);
+    }
+
+    @GetMapping("/employees/list")
+    public List<EmployeeDropDownDTO> getAllEmployeesForDropDown() {
+        return employeesService.getAllEmployeesForDropDown();
     }
 
     @PutMapping("/employees/update")

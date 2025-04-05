@@ -3,11 +3,13 @@ package com.telusko.assetmanagmentapplication.service;
 import com.telusko.assetmanagmentapplication.assetObjects.Categories;
 import com.telusko.assetmanagmentapplication.assetObjects.Locations;
 import com.telusko.assetmanagmentapplication.dto.CategoryAddDTO;
+import com.telusko.assetmanagmentapplication.dto.CategoryDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.LocationAddDTO;
 import com.telusko.assetmanagmentapplication.repository.CategoriesRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +25,18 @@ public class CategoriesService {
     public List<Categories> getAllCategories() {
 
         return categoriesRepo.findAll();
+    }
+
+    public List<CategoryDropDownDTO> getAllCategoriesForDropDown() {
+        List<Categories> categories = categoriesRepo.findAll();
+        List<CategoryDropDownDTO> categoryDropDownDTOS = new ArrayList<>();
+        for(Categories categories1 : categories) {
+            CategoryDropDownDTO categoryDropDownDTO = new CategoryDropDownDTO();
+            categoryDropDownDTO.setCategoryId(categories1.getCategoryId());
+            categoryDropDownDTO.setCategoryName(categories1.getCategoryName());
+            categoryDropDownDTOS.add(categoryDropDownDTO);
+        }
+        return categoryDropDownDTOS;
     }
 
     public String addCategory(@RequestBody CategoryAddDTO categoryAddDTO) {

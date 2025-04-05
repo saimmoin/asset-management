@@ -16,7 +16,8 @@ public class AssetDetailsService {
 
     public List<AssetDetails> getAllAssetDetails() {
 
-        return assetDetailsRepo.findAll();
+        List<AssetDetails> assetDetails =  assetDetailsRepo.findAll();
+        return  assetDetails;
     }
 
 }

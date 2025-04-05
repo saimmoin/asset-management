@@ -1,7 +1,9 @@
 package com.telusko.assetmanagmentapplication.controller;
 
+import com.telusko.assetmanagmentapplication.assetObjects.AssetDetails;
 import com.telusko.assetmanagmentapplication.assetObjects.Assets;
 import com.telusko.assetmanagmentapplication.dto.AssetAddDTO;
+import com.telusko.assetmanagmentapplication.service.AssetDetailsService;
 import com.telusko.assetmanagmentapplication.service.AssetsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,15 +27,22 @@ import java.util.List;
 public class AssetsController {
 
     private final AssetsService assetsService;
+    private final AssetDetailsService assetDetailsService;
 
-    public AssetsController(AssetsService assetsService) {
+    public AssetsController(AssetsService assetsService, AssetDetailsService assetDetailsService) {
         this.assetsService = assetsService;
+        this.assetDetailsService = assetDetailsService;
     }
 
     @GetMapping("/assets")
     public List<Assets> getAllAssets() {
 
         return assetsService.getAllAssets();
+    }
+
+    @GetMapping("/assetDetails")
+    public List<AssetDetails> getAllAssetDetails() {
+        return assetDetailsService.getAllAssetDetails();
     }
 
     @PostMapping("/assets/add")

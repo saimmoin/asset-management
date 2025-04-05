@@ -3,8 +3,10 @@ package com.telusko.assetmanagmentapplication.controller;
 import com.telusko.assetmanagmentapplication.assetObjects.Assets;
 import com.telusko.assetmanagmentapplication.assetObjects.Locations;
 import com.telusko.assetmanagmentapplication.assetObjects.Suppliers;
+import com.telusko.assetmanagmentapplication.dto.CategoryDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.LocationAddDTO;
 import com.telusko.assetmanagmentapplication.dto.SupplierAddDTO;
+import com.telusko.assetmanagmentapplication.dto.SupplierDropDownDTO;
 import com.telusko.assetmanagmentapplication.service.AssetsService;
 import com.telusko.assetmanagmentapplication.service.LocationsService;
 import com.telusko.assetmanagmentapplication.service.SuppliersService;
@@ -39,6 +41,11 @@ public class SupplierController {
     public List<Suppliers> getAllSuppliers() {
 
         return suppliersService.getAllSuppliers();
+    }
+
+    @GetMapping("/suppliers/list")
+    public List<SupplierDropDownDTO> getAllSuppliersForDropDown() {
+        return suppliersService.getAllSuppliersForDropDown();
     }
 
     @PostMapping("/suppliers/add")

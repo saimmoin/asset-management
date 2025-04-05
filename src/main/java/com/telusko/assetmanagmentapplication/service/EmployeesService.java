@@ -2,12 +2,16 @@ package com.telusko.assetmanagmentapplication.service;
 
 import com.telusko.assetmanagmentapplication.assetObjects.Employees;
 import com.telusko.assetmanagmentapplication.assetObjects.Locations;
+import com.telusko.assetmanagmentapplication.assetObjects.Suppliers;
 import com.telusko.assetmanagmentapplication.dto.EmployeeAddDTO;
+import com.telusko.assetmanagmentapplication.dto.EmployeeDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.LocationAddDTO;
+import com.telusko.assetmanagmentapplication.dto.SupplierDropDownDTO;
 import com.telusko.assetmanagmentapplication.repository.EmployeesRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +37,18 @@ public class EmployeesService {
         employees.setContactPhone(employeeAddDTO.getContactPhone());
         employeesRepo.save(employees);
         return "Employee saved successfully!";
+    }
+
+    public List<EmployeeDropDownDTO> getAllEmployeesForDropDown() {
+        List<Employees> employees = employeesRepo.findAll();
+        List<EmployeeDropDownDTO> employeeDropDownDTOS = new ArrayList<>();
+        for(Employees employees1 : employees) {
+            EmployeeDropDownDTO employeeDropDownDTO = new EmployeeDropDownDTO();
+            employeeDropDownDTO.setEmployeeId(employees1.getEmployeeId());
+            employeeDropDownDTO.setEmployeeName(employees1.getEmployeeName());
+            employeeDropDownDTOS.add(employeeDropDownDTO);
+        }
+        return employeeDropDownDTOS;
     }
 
     public String updateEmployee(EmployeeAddDTO employeeAddDTO) {

@@ -4,6 +4,7 @@ import com.telusko.assetmanagmentapplication.assetObjects.Assets;
 import com.telusko.assetmanagmentapplication.assetObjects.Categories;
 import com.telusko.assetmanagmentapplication.assetObjects.Locations;
 import com.telusko.assetmanagmentapplication.dto.CategoryAddDTO;
+import com.telusko.assetmanagmentapplication.dto.CategoryDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.LocationAddDTO;
 import com.telusko.assetmanagmentapplication.service.AssetsService;
 import com.telusko.assetmanagmentapplication.service.CategoriesService;
@@ -44,6 +45,11 @@ public class CategoriesController {
     @PostMapping("/categories/add")
     public String addCategory(@RequestBody CategoryAddDTO categoryAddDTO) {
         return categoriesService.addCategory(categoryAddDTO);
+    }
+
+    @GetMapping("/categories/list")
+    public List<CategoryDropDownDTO> getAllCategoriesForDropDown() {
+        return categoriesService.getAllCategoriesForDropDown();
     }
 
     @PutMapping("/categories/update")

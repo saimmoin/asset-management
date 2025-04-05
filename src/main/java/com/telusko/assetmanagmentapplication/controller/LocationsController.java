@@ -2,7 +2,9 @@ package com.telusko.assetmanagmentapplication.controller;
 
 import com.telusko.assetmanagmentapplication.assetObjects.Assets;
 import com.telusko.assetmanagmentapplication.assetObjects.Locations;
+import com.telusko.assetmanagmentapplication.dto.CategoryDropDownDTO;
 import com.telusko.assetmanagmentapplication.dto.LocationAddDTO;
+import com.telusko.assetmanagmentapplication.dto.LocationDropDownDTO;
 import com.telusko.assetmanagmentapplication.service.AssetsService;
 import com.telusko.assetmanagmentapplication.service.LocationsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,11 @@ public class LocationsController {
     public List<Locations> getAllLocations() {
 
         return locationsService.getAllLocations();
+    }
+
+    @GetMapping("/locations/list")
+    public List<LocationDropDownDTO> getAllLocationsForDropDown() {
+        return locationsService.getAllLocationsForDropDown();
     }
 
     @PostMapping("/locations/add")

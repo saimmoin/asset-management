@@ -42,7 +42,7 @@ public class AssetsService {
         assetHistory.setAssetId(savedAsset.getAssetId());
         assetHistory.setLocationId(assetAddDTO.getLocationId());
         assetHistory.setYear(assetAddDTO.getYear());
-        assetHistory.setAssetHistory(assetAddDTOa.getAssetHistory());
+        assetHistory.setAssetHistory(assetAddDTO.getAssetHistory());
         assetHistoryRepo.save(assetHistory);
 
         AssetDetails assetDetails = new AssetDetails();

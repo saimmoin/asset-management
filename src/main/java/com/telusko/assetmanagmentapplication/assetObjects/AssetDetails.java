@@ -12,7 +12,7 @@ public class AssetDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "assetDetails_id")
+    @Column(name = "asset_details_id")
     private Long assetDetailsId;
 
     @Column(name="asset_id")
